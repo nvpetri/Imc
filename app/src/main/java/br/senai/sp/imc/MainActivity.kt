@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -126,7 +128,7 @@ fun Greeting() {
                         onValueChange = {},
                         label = {
                             Text(
-                                text = "Digite seu peso"
+                                text = "Seu peso em Kg"
                             )
                         },
                         colors = OutlinedTextFieldDefaults.colors(
@@ -145,7 +147,7 @@ fun Greeting() {
                         onValueChange = {},
                         label = {
                             Text(
-                                text = "Digite sua altura"
+                                text = "Sua altura em metros"
                             )
                         },
                         colors = OutlinedTextFieldDefaults.colors(
@@ -169,14 +171,58 @@ fun Greeting() {
                         )
                     }
                 }
-                Button(onClick = { /*TODO*/ }) {
-                    Row {
-                        Column {
-
-                        }
-
-                    }
+            }
+        }
+        Box(
+            modifier = Modifier
+                .width(336.dp)
+                .height(130.dp)
+                .padding(top = 22.dp, start = 56.dp)
+                .shadow(32.dp, RectangleShape)
+                .background(
+                    color = Color(0xFF308122),
+                    shape = RoundedCornerShape(
+                        topStart = 10.dp,
+                        topEnd = 10.dp,
+                        bottomStart = 10.dp,
+                        bottomEnd = 10.dp
+                    )
+                )
+                .border(
+                    1.dp, color = Color.Red, shape = RoundedCornerShape(
+                        topStart = 10.dp,
+                        topEnd = 10.dp,
+                        bottomStart = 10.dp,
+                        bottomEnd = 10.dp
+                    )
+                )
+        ) {
+            Row() {
+                Column {
+                    Text(
+                        text = "Resultado",
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        modifier = Modifier
+                            .padding(top = 20.dp, start = 46.dp)
+                    )
+                    Text(
+                        text = "Peso Ideal",
+                        color = Color.White,
+                        fontSize = 26.sp,
+                        modifier = Modifier
+                            .padding(top = 6.dp, start = 20.dp)
+                    )
                 }
+                Column {
+                    Text(
+                        text = "21.3",
+                        color = Color.White,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 36.sp,
+                        modifier = Modifier
+                            .padding(top = 30.dp, start = 24.dp)
+                    )
                 }
             }
         }
