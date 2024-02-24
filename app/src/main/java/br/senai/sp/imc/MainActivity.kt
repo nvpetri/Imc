@@ -61,6 +61,15 @@ class MainActivity : ComponentActivity() {
 fun Greeting() {
     Column(
         modifier = Modifier
+            .fillMaxSize()
+            .background(
+                color = Color.White
+            )
+    ) {
+
+    }
+    Column(
+        modifier = Modifier
             .height(200.dp)
             .fillMaxWidth()
             .background(color = Color.Red)
