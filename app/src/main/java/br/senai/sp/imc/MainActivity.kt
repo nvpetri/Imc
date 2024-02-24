@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,13 +16,21 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -72,30 +82,103 @@ fun Greeting() {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .height(600.dp)
+                .height(540.dp)
                 .width(340.dp)
                 .padding(top = 176.dp, start = 50.dp)
+                .shadow(32.dp, RectangleShape)
                 .background(
-                    color = Color(0xFFECECEC),
+                    color = Color(0xFFF0ECEC),
                     shape = RoundedCornerShape(
-                        topStart = 20.dp,
-                        bottomEnd = 20.dp,
-                        topEnd = 20.dp,
-                        bottomStart = 20.dp
+                        topStart = 10.dp,
+                        bottomEnd = 10.dp,
+                        topEnd = 10.dp,
+                        bottomStart = 10.dp
                     )
                 )
         ) {
             Text(
                 text = "Seus dados",
-                fontWeight = FontWeight.Bold,
-                fontSize = 26.sp,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 34.sp,
                 color = Color.Red,
                 modifier = Modifier
                     .padding(top = 32.dp)
             )
-            Text(
-                text ="Seu peso"
-            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Start
+            ) {
+                Column(
+                    modifier = Modifier
+                        .width(250.dp)
+                        .padding(start = 26.dp)
+                ) {
+                    Text(
+                        text = "Seu peso:",
+                        color = Color.Red,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier
+                            .padding(top = 10.dp)
+                    )
+                    OutlinedTextField(
+                        value = "",
+                        onValueChange = {},
+                        label = {
+                            Text(
+                                text = "Digite seu peso"
+                            )
+                        },
+                        colors = OutlinedTextFieldDefaults.colors(
+                            unfocusedBorderColor = Color.Red
+                        )
+                    )
+                    Text(
+                        text = "Sua altura:",
+                        color = Color.Red,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier
+                            .padding(top = 10.dp)
+                    )
+                    OutlinedTextField(
+                        value = "",
+                        onValueChange = {},
+                        label = {
+                            Text(
+                                text = "Digite sua altura"
+                            )
+                        },
+                        colors = OutlinedTextFieldDefaults.colors(
+                            unfocusedBorderColor = Color.Red
+                        )
+                    )
+                    Button(
+                        onClick = { /*TODO*/ },
+                        shape = RoundedCornerShape(6.dp),
+                        colors = ButtonDefaults
+                            .buttonColors(containerColor = Color.Red),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(68.dp)
+                            .padding(top = 18.dp)
+                    ) {
+                        Text(
+                            text = "CALCULAR",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
+                }
+                Button(onClick = { /*TODO*/ }) {
+                    Row {
+                        Column {
+
+                        }
+
+                    }
+                }
+                }
+            }
         }
     }
 }
