@@ -179,7 +179,8 @@ fun Greeting() {
                                 Text(
                                     text = "CALCULAR",
                                     fontSize = 18.sp,
-                                    fontWeight = FontWeight.Medium
+                                    fontWeight = FontWeight.Medium,
+                                    color = Color.White
                                 )
                             }
                         }
